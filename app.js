@@ -1,7 +1,7 @@
 // app.js
 alert("JS is running");
-import { parseReportText, extractCollectedAt } from "./parser.js";
-import { addReportMeasurements, clearAll, getAllMeasurements } from "./storage.js";
+import { parseReportText, extractCollectedAt } from "/lab_tracker/parser.js";
+import { addReportMeasurements, clearAll, getAllMeasurements } from "/lab_tracker/storage.js";
 
 pdfjsLib.GlobalWorkerOptions.workerSrc =
   "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.worker.min.js";
