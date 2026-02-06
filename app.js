@@ -3,6 +3,11 @@ alert("JS is running");
 import { parseReportText, extractCollectedAt } from "/lab_tracker/parser.js";
 import { addReportMeasurements, clearAll, getAllMeasurements } from "/lab_tracker/storage.js";
 
+document.addEventListener("DOMContentLoaded", () => {
+  const s = document.getElementById("status");
+  if (s) s.textContent = "JS loaded successfully";
+});
+
 pdfjsLib.GlobalWorkerOptions.workerSrc =
   "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.worker.min.js";
 
