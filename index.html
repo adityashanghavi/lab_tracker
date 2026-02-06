@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lab Trend Tracker</title>
+  <link rel="stylesheet" href="./styles.css" />
+
+  <!-- PDF.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.min.js"></script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- LocalForage (IndexedDB wrapper) -->
+  <script src="https://cdn.jsdelivr.net/npm/localforage@1.10.0/dist/localforage.min.js"></script>
+</head>
+<body>
+  <header class="header">
+    <h1>Lab Trend Tracker</h1>
+    <p class="sub">Upload blood report PDFs and track each metric over time.</p>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>1) Upload report (PDF)</h2>
+      <input id="fileInput" type="file" accept="application/pdf" />
+      <div class="row">
+        <button id="btnParse" disabled>Parse PDF</button>
+        <button id="btnClear">Clear all data</button>
+      </div>
+      <p id="status" class="status"></p>
+      <details>
+        <summary>Notes</summary>
+        <ul>
+          <li>This MVP works best for text-based PDFs (not scanned images).</li>
+          <li>You’ll be able to review extracted values before saving.</li>
+          <li>Data is stored locally in your browser (IndexedDB).</li>
+        </ul>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>2) Review extracted measurements</h2>
+      <div id="reviewMeta" class="meta"></div>
+      <div id="reviewTableWrap"></div>
+      <div class="row">
+        <button id="btnSave" disabled>Save to history</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>3) Trends</h2>
+      <div class="row">
+        <label>
+          Metric
+          <select id="metricSelect"></select>
+        </label>
+        <button id="btnExport">Export CSV</button>
+      </div>
+
+      <div class="chartWrap">
+        <canvas id="chart" height="120"></canvas>
+      </div>
+
+      <div id="historyTableWrap"></div>
+    </section>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
