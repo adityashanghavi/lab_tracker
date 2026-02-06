@@ -1,4 +1,5 @@
 // app.js
+const pdfjsLib = window.pdfjsLib;
 alert("JS is running");
 import { parseReportText, extractCollectedAt } from "/lab_tracker/parser.js";
 import { addReportMeasurements, clearAll, getAllMeasurements } from "/lab_tracker/storage.js";
@@ -8,8 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (s) s.textContent = "JS loaded successfully";
 });
 
-pdfjsLib.GlobalWorkerOptions.workerSrc =
-  "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.worker.min.js";
+// pdfjsLib.GlobalWorkerOptions.workerSrc =
+//   "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.worker.min.js";
 
 const el = (id) => document.getElementById(id);
 
