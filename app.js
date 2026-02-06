@@ -1,4 +1,5 @@
 // app.js
+alert("JS is running");
 import { parseReportText, extractCollectedAt } from "./parser.js";
 import { addReportMeasurements, clearAll, getAllMeasurements } from "./storage.js";
 
